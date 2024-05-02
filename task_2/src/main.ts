@@ -1,8 +1,15 @@
-import './app.css'
-import App from './App.svelte'
+import './app.css';
+import Convert from './Convert.svelte';
 
-const app = new App({
-  target: document.getElementById('app'),
-})
+let app: Convert | null = null;
+const targetElement = document.getElementById('app');
 
-export default app
+if (targetElement) {
+  app = new Convert({
+    target: targetElement,
+  });
+} else {
+  console.error('Target element not found');
+}
+
+export default app;
